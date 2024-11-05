@@ -108,3 +108,15 @@ SELECT * FROM VENTA;
 SELECT * FROM VENTA_DETALLE;
 
 
+-- LISTAR RELACIONES
+SELECT 
+    table_name AS 'Tabla',
+    column_name AS 'Columna',
+    constraint_name AS 'Nombre de la Clave Foránea',
+    referenced_table_name AS 'Tabla Referenciada',
+    referenced_column_name AS 'Columna Referenciada'
+FROM
+    information_schema.KEY_COLUMN_USAGE
+WHERE
+    table_schema = 'dbGamarraMarket'
+    AND referenced_table_name IS NOT NULL;
